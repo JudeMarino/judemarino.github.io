@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../scroll-waves-w-gsap-observer"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "scroll-waves-w-gsap-observer"
+	}
+}
