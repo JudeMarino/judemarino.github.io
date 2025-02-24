@@ -74,6 +74,7 @@ body {
 @media (max-width: 500px) {
   
   .grid {
+    margin: 10px;
     display: flex;
     flex-direction: column; 
     align-items: center;
