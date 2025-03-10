@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>#cpc-WaveForm Options</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="wrapper">
+  <div id="waveform"><img id="placeholder" src="https://i.imgur.com/RLEmXvV.png"/></div>
+  <div class="toast" id="toast" popover="auto">
+    <button btn-close="btn-close" aria-label="Close Modal" popovertarget="toast" popovertargetaction="hide">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <use href="#icon-close"></use>
+      </svg>
+    </button>
+    <h2>Recording Blocked</h2>
+    <p>For users safety, Codepen doesnt permit the ability to access microphone or webcam. Please upload your audio directly or use a host like <a href="https://jukehost.co.uk/library">Jukehost</a> and paste the URL into the input at the bottom of the form!</p>
+  </div>
+  <div class="btn-container">
+    <button class="btn-primary" data-trigger="data-trigger" aria-label="Play">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <use href="#icon-play"></use>
+      </svg><span>Play</span>
+    </button>
+    <button class="btn-primary" data-record="false" popovertarget="toast" popovertargetaction="show" aria-label="record audio">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <use href="#icon-record"></use>
+      </svg><span>record</span>
+    </button>
+    <label class="btn-primary" for="audioUpload" data-upload="data-upload" aria-label="upload file">
+      <input class="visually-hidden" id="audioUpload" type="file" accept="audio/*"/>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <use href="#icon-upload"></use>
+      </svg><span>upload</span>
+    </label>
+  </div>
+</div>
+<svg width="0" height="0">
+  <defs>
+    <symbol id="icon-record" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path>
+      <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+      <line x1="12" x2="12" y1="19" y2="22"></line>
+    </symbol>
+    <symbol id="icon-play" viewBox="0 0 24 24">
+      <polygon points="6 3 20 12 6 21 6 3"></polygon>
+    </symbol>
+    <symbol id="icon-pause" viewBox="0 0 24 24">
+      <rect x="14" y="4" width="4" height="16" rx="1"></rect>
+      <rect x="6" y="4" width="4" height="16" rx="1"></rect>
+    </symbol>
+    <symbol id="icon-upload" viewBox="0 0 24 24">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+      <polyline points="17 8 12 3 7 8"></polyline>
+      <line x1="12" x2="12" y1="3" y2="15"></line>
+    </symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24">
+      <path d="M18 6 6 18"></path>
+      <path d="m6 6 12 12"></path>
+    </symbol>
+  </defs>
+</svg>
+<!-- partial -->
+  <script src='https://unpkg.com/wavesurfer.js@7/dist/wavesurfer.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

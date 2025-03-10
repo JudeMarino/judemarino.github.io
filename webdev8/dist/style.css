@@ -9,7 +9,7 @@
   --red: hsl(0, 0%, 0%);
   --teal: hsl(0, 0%, 0%);
   --purple: hsl(0, 0%, 0%);
-  --trans-dur: 0.3s;
+  --trans-dur: 3s;
   color-scheme: light dark;
   font-size: clamp(1rem,0.9rem + 0.5vw,1.5rem);
 }
@@ -26,11 +26,11 @@ body {
 .pl {
   display: block;
   margin: auto;
-  width: 16em;
+  width: 25em;
   height: auto;
 }
 .pl__curve, .pl__dot, .pl__scene {
-  animation-duration: 1s;
+  animation-duration: 5s;
   animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
   animation-iteration-count: infinite;
 }

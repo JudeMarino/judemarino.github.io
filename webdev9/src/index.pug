@@ -1,0 +1,103 @@
+.wrapper
+	#waveform
+		img#placeholder(src="https://i.imgur.com/RLEmXvV.png")
+	#toast.toast(popover="auto")
+		button(
+			btn-close,
+			aria-label="Close Modal",
+			popovertarget="toast",
+			popovertargetaction="hide"
+		)
+			svg(
+				width="24",
+				height="24",
+				viewBox="0 0 24 24",
+				fill="none",
+				stroke="currentColor",
+				stroke-width="2",
+				stroke-linecap="round",
+				stroke-linejoin="round"
+			)
+				use(href="#icon-close")
+		h2 Recording Blocked
+		p For users safety, Codepen doesnt permit the ability to access microphone or webcam. Please upload your audio directly or use a host like!{' '}
+			a(href="https://jukehost.co.uk/library") Jukehost
+
+			| !{' '}and paste the URL into the input at the bottom of the form!
+
+	.btn-container
+		button.btn-primary(data-trigger, aria-label="Play")
+			svg(
+				width="24",
+				height="24",
+				viewBox="0 0 24 24",
+				fill="none",
+				stroke="currentColor",
+				stroke-width="2",
+				stroke-linecap="round",
+				stroke-linejoin="round"
+			)
+				use(href="#icon-play")
+			span Play
+		button.btn-primary(
+			data-record="false",
+			popovertarget="toast",
+			popovertargetaction="show",
+			aria-label="record audio"
+		)
+			svg(
+				width="24",
+				height="24",
+				viewBox="0 0 24 24",
+				fill="none",
+				stroke="currentColor",
+				stroke-width="2",
+				stroke-linecap="round",
+				stroke-linejoin="round"
+			)
+				use(href="#icon-record")
+			span record
+		label.btn-primary(for="audioUpload", data-upload, aria-label="upload file")
+			input#audioUpload.visually-hidden(type="file", accept="audio/*")
+			svg(
+				width="24",
+				height="24",
+				viewBox="0 0 24 24",
+				fill="none",
+				stroke="currentColor",
+				stroke-width="2",
+				stroke-linecap="round",
+				stroke-linejoin="round"
+			)
+				use(href="#icon-upload")
+			span upload
+
+//- ICONS      
+svg(width="0", height="0")
+	defs
+		symbol#icon-record(
+			viewBox="0 0 24 24",
+			stroke="currentColor",
+			stroke-width="2",
+			stroke-linecap="round",
+			stroke-linejoin="round"
+		)
+			path(d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z")
+			path(d="M19 10v2a7 7 0 0 1-14 0v-2")
+			line(x1="12", x2="12", y1="19", y2="22")
+
+		symbol#icon-play(viewBox="0 0 24 24")
+			polygon(points="6 3 20 12 6 21 6 3")
+
+		symbol#icon-pause(viewBox="0 0 24 24")
+			rect(x="14", y="4", width="4", height="16", rx="1")
+			rect(x="6", y="4", width="4", height="16", rx="1")
+
+		symbol#icon-upload(viewBox="0 0 24 24")
+			path(d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4")
+			polyline(points="17 8 12 3 7 8")
+			line(x1="12", x2="12", y1="3", y2="15")
+
+		symbol#icon-close(viewBox="0 0 24 24")
+			path(d="M18 6 6 18")
+			path(d="m6 6 12 12")
