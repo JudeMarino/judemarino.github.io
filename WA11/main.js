@@ -11,11 +11,11 @@ const images = ['pic1.jpg', 'pic2.jpg', 'pic3.jpg', 'pic4.jpg', 'pic5.jpg'];
 /* Declaring the alternative text for each image file */
 
 const alts = {
-    'pic1.jpg': 'Filler',
-    'pic2.jpg': 'Filler',
-    'pic3.jpg': 'Filler',
-    'pic4.jpg': 'Filler',
-    'pic5.jpg': 'Filler'
+    'pic1.jpg': 'lush mountain landscape',
+    'pic2.jpg': 'Mountain of Lions Mexico City',
+    'pic3.jpg': 'Mountain of Lions Mexico City guy in road',
+    'pic4.jpg': 'Abandoned basketball court',
+    'pic5.jpg': 'The Flatirons in the fog'
   };
 
 /* Looping through images */
