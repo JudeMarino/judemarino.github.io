@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ica12.css">
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="app">
+        <header>Book Quote Generator</header>
+        <section class="quotes">
+          <div class="quote-text" id="js-quote-text"></div>
+          <div class="quote-text" id="js-answer-text"></div>
+        </section>
+        <section class="controls" >
+          <button type="button" id="js-new-quote" class="new-quote button">
+            Generate book quote
+          </button>
+          <button type="button" id="js-show-answer" class="twitter button">
+            Show author
+          </button>
+          <!-- <a class="answer button" id="js-tweet" target="_blank" rel="noreferrer">Show me the answer!</a> -->
+        </section>
+      </div>
+    <div class="changes">
+      <h4>
+        For my addition to my version of the quote generator I made it so the background changes everytime a new quote is generated. I did this by using a list in JS 
+        and defining a variable which wraps the list back around once it reaches 5. It does this by using the variable of colorList to define what color in the index is showing. I then used CSS to ease the transition so it felt smoother when chenging quotes.
+      </h4>
+    </div>
+      <script>
+
+let current = {
+  quote: "",
+  author: ""
+};
+
+const colors = ['#f6d365', '#fda085', '#a1c4fd', '#c2e9fb', '#ff9a9e'];
+let colorList = 0;
+
+const endpoint = "https://recite-production.up.railway.app/api/v1/random";
+
+document.querySelector('#js-new-quote').addEventListener('click', getQuote);
+document.querySelector('#js-show-answer').addEventListener('click', () => {
+  displayAnswer(current.author);
+});
+
+async function getQuote() {
+  try {
+    const response = await fetch(endpoint);
+    if (!response.ok) throw new Error(response.statusText);
+
+    const json = await response.json();
+    current.quote = json.quote;
+    current.author = json.author;
+
+    displayQuote(current.quote);
+    clearAnswer();
+  } catch (err) {
+    console.error('Failed to fetch quote:', err);
+    alert('Could not load quote. Please try again later.');
+  }
+
+  displayQuote(current.quote);
+  clearAnswer();
+  changeBackgroundColor();
+}
+  function displayQuote(quote) {
+  document.querySelector('#js-quote-text').textContent = quote;
+}
+
+function displayAnswer(author) {
+  document.querySelector('#js-answer-text').textContent = `— ${author}`;
+}
+
+function clearAnswer() {
+  document.querySelector('#js-answer-text').textContent = '';
+}
+
+function changeBackgroundColor() {
+  document.body.style.backgroundColor = colors[colorList];
+  colorList = (colorList + 1) % colors.length;
+}
+
+      </script>
+</body>
+</html>
