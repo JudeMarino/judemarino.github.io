@@ -102,6 +102,3 @@ function loop() {
   requestAnimationFrame(loop);
 }
 loop();
-
-
-// I was having a lot of trouble because I missed class. I used the finished product as reference a lot
