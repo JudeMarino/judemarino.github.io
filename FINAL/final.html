@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>final</title>
+  <link rel="stylesheet" href="final.css">
+</head>
+<body>
+
+  <h1>PHONE NUMBER</h1>
+  <p>Spell out numbers</p>
+  <input type="text" id="phoneInput">
+  <div id="error"></div>
+
+  <script>
+    const phoneInput = document.getElementById('phoneInput');
+    const errorD = document.getElementById('error');
+
+    const rightWords = [
+      "zero", "one", "two", "three", "four",
+      "five", "six", "seven", "eight", "nine"
+    ];
+
+    phoneInput.addEventListener('input', () => {
+      const value = phoneInput.value.toLowerCase();
+
+      let containsDigit = false;
+      for (let i = 0; i < value.length; i++) {
+        if ("0123456789".indexOf(value[i]) !== -1) {
+          containsDigit = true;
+          break;
+        }
+      }
+
+      if (containsDigit) {
+        errorD.textContent = "no numbers";
+        let cleaned = '';
+        for (let i = 0; i < value.length; i++) {
+          if ("0123456789".indexOf(value[i]) === -1) {
+            cleaned += value[i];
+          }
+        }
+        phoneInput.value = cleaned;
+        return;
+      }
+
+      let rawWords = [];
+      let word = '';
+      for (let i = 0; i < value.length; i++) {
+        if (value[i] === ' ') {
+          if (word !== '') rawWords.push(word);
+          word = '';
+        } else {
+          word += value[i];
+        }
+      }
+      if (word !== '') rawWords.push(word);
+
+      const wrongWords = [];
+      for (let i = 0; i < rawWords.length; i++) {
+        if (rightWords.indexOf(rawWords[i]) === -1) {
+          wrongWords.push(rawWords[i]);
+        }
+      }
+
+      if (wrongWords.length > 0) {
+        errorD.textContent = "Invalid word" + wrongWords.join(", ");
+      } else {
+        errorD.textContent = "";
+      }
+    });
+  </script>
+
+</body>
+</html>
