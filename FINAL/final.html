@@ -2,71 +2,92 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>final</title>
-  <link rel="stylesheet" href="final.css">
+  <title>Final Phone Input</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nosifer&display=swap" rel="stylesheet">
+  <link href="final.css" rel="stylesheet">
 </head>
 <body>
 
-  <h1>PHONE NUMBER</h1>
-  <p>Spell out numbers</p>
-  <input type="text" id="phoneInput">
-  <div id="error"></div>
+  <div class="container">
+    <h1>PHONE NUMBER ENTRY</h1>
+    <h3>Your information is being sold and corrupted</h3>
+    <p>Type each number <b>FULLY SPELLED OUT WITH LETTERS</b> and click enter until your phone number is complete <b>see what happens (:</b></p>
+    <input type="text" id="phoneInput" placeholder="Type a number word">
+    <div id="error"></div>
+    <div id="phoneDisplay">Phone Number: </div>
+
+    <div class="error-popup" id="errorPopup">
+      Your information is being sold on the dark web!
+    </div>
+  </div>
 
   <script>
     const phoneInput = document.getElementById('phoneInput');
     const errorD = document.getElementById('error');
+    const phoneDisplay = document.getElementById('phoneDisplay');
+    const errorPopup = document.getElementById('errorPopup');
 
-    const rightWords = [
-      "zero", "one", "two", "three", "four",
-      "five", "six", "seven", "eight", "nine"
-    ];
+    const numberWords = {
+      "zero": "0", "one": "1", "two": "2", "three": "3", "four": "4",
+      "five": "5", "six": "6", "seven": "7", "eight": "8", "nine": "9"
+    };
 
-    phoneInput.addEventListener('input', () => {
-      const value = phoneInput.value.toLowerCase();
+    let phoneDigits = '';
 
-      let containsDigit = false;
-      for (let i = 0; i < value.length; i++) {
-        if ("0123456789".indexOf(value[i]) !== -1) {
-          containsDigit = true;
-          break;
-        }
+    function formatPhoneNumber(digits) {
+      const cleaned = digits.slice(0, 10);
+      let formatted = '';
+
+      if (cleaned.length > 0) {
+        formatted += '(' + cleaned.slice(0, 3);
+      }
+      if (cleaned.length >= 4) {
+        formatted += ') ' + cleaned.slice(3, 6);
+      }
+      if (cleaned.length >= 7) {
+        formatted += '-' + cleaned.slice(6, 10);
       }
 
-      if (containsDigit) {
-        errorD.textContent = "no numbers";
-        let cleaned = '';
-        for (let i = 0; i < value.length; i++) {
-          if ("0123456789".indexOf(value[i]) === -1) {
-            cleaned += value[i];
+      return formatted;
+    }
+
+    phoneInput.addEventListener('keydown', (e) => {
+      let cleanedValue = '';
+      let hasDigit = false;
+
+      for (let i = 0; i < phoneInput.value.length; i++) {
+        const char = phoneInput.value[i];
+        if (char >= '0' && char <= '9') {
+          hasDigit = true;
+          continue;
+        }
+        cleanedValue += char;
+      }
+
+      if (hasDigit) {
+        phoneInput.value = cleanedValue;
+        errorD.textContent = "Please spell out numbers.";
+      }
+
+      const word = phoneInput.value.trim().toLowerCase();
+
+      if (numberWords[word]) {
+        if (phoneDigits.length < 10) {
+          phoneDigits += numberWords[word];
+          const formatted = formatPhoneNumber(phoneDigits);
+          phoneDisplay.textContent = `Phone Number: ${formatted}`;
+          errorD.textContent = '';
+          if (phoneDigits.length === 10) {
+            errorPopup.style.display = 'block';
           }
-        }
-        phoneInput.value = cleaned;
-        return;
-      }
-
-      let rawWords = [];
-      let word = '';
-      for (let i = 0; i < value.length; i++) {
-        if (value[i] === ' ') {
-          if (word !== '') rawWords.push(word);
-          word = '';
         } else {
-          word += value[i];
+          errorD.textContent = "Phone number is already complete.";
         }
-      }
-      if (word !== '') rawWords.push(word);
 
-      const wrongWords = [];
-      for (let i = 0; i < rawWords.length; i++) {
-        if (rightWords.indexOf(rawWords[i]) === -1) {
-          wrongWords.push(rawWords[i]);
-        }
-      }
-
-      if (wrongWords.length > 0) {
-        errorD.textContent = "Invalid word" + wrongWords.join(", ");
+        phoneInput.value = ''; 
       } else {
-        errorD.textContent = "";
+        errorD.textContent = `"${word}" is not a valid number word.`;
       }
     });
   </script>
