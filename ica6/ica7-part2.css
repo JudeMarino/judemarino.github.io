@@ -1,0 +1,42 @@
+body{
+    background-color: olive;
+}
+
+
+#flex-parent {
+    background-color: orangered;
+}
+
+#flex-parent p {
+    padding: 5vw;
+}
+
+#flex-child1 {
+    order: 2;
+}
+#flex-child2 {
+    order: 3;
+}
+#flex-child3 {
+    order: 1;
+}
+#flex-child4 {
+    order: 0; 
+}
+
+#grid-parent h1{
+    background-color: grey;
+    padding:3vw 5vh;
+    margin:5vw;
+    
+}
+
+#grid-parent {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+}
+
+#no0 {
+    grid-column: 2;
+}
