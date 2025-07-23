@@ -1,0 +1,66 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffebcd;
+}
+
+h1{
+    font-family: "Helvetica", sans-serif;
+}
+
+nav{
+    padding: 5px;
+    height: 55vh;
+    width: 100vw;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height:20px;
+    background-color: rgb(168, 155, 136);
+}
+nav a{
+    font-weight: bolder;
+    font-family: "Helvetica", sans-serif;
+    width:10vw;
+    text-align: center;
+    text-decoration: none;
+    color:black;
+    transition: color 0.5s;
+}
+
+nav a:hover{
+    color:#ffebcd;
+}
+
+
+img{
+    width: 100vw;
+    height: 90vh;
+}
+
+#red-ball{
+    border: 5px solid black;
+    background-color: rgba(255, 255, 255, 0);
+    width: 70vw;
+    height:10px;
+    transform: translate(0, 6.5vh);
+    border-radius: 50%;
+    position: absolute;
+    align-items: center;
+
+    animation-name: spin;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes spin{
+    0% {
+        height:10px;
+    }
+    100%{
+        height:0px;
+    }
+}
+
