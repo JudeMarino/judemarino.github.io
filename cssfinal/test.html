@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show/Hide Divs</title>
+    <style>
+        .hidden-content {
+            display: none;
+        }
+
+        /* Show the div when its ID is targeted */
+        .hidden-content:target {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="#div1">Show Div 1</a> | 
+    <a href="#div2">Show Div 2</a> | 
+    <a href="#">Hide All</a>
+
+    <div id="div1" class="hidden-content">
+        <p>This is Div 1</p>
+    </div>
+
+    <div id="div2" class="hidden-content">
+        <p>This is Div 2</p>
+    </div>
+
+</body>
+</html>
