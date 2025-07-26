@@ -3,7 +3,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-/* random sci fi weird google fonts */
+/* random sci fi weird google fonts I found */
 
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Audiowide&family=Michroma&family=Quantico&family=Inter&display=swap');
 
@@ -127,17 +127,23 @@ nav a:hover {
     transition: opacity 0.8s ease-out;
 }
 
-#titleGone:checked + #title {
-    opacity: 0;
-    pointer-events: none;
+ #titleGone:checked + #title {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.8s ease-out;
 }
 
-h4 {
-    color: red;
+.title1 {
+    font-weight: bolder;
+}
+
+.title3 {
+padding: 20px;
+ color: red;
+ font-size: 23px;
 }
 
 
-/* screen around 400 pixels */
 
 @media screen and (max-width: 450px) {
     body {
