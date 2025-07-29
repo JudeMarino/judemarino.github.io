@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ica10</title>
+
+</head>
+<body>
+
+
+
+    <img id="image1" src="img/texture.jpg" alt="weird screen textures">
+
+<style>
+    #image1.inverted {
+        filter: invert(100%);
+    }
+</style>
+
+ <button id="button1">Invert Colors</button>
+ <p id="counter">count: 0</p>
+ <button id="countButton">Increase Count</button>
+
+<script>
+
+    // Invert colros button
+const button = document.getElementById('button1');
+const image = document.getElementById('image1');
+button.addEventListener('click', function () {
+image.classList.toggle('inverted');
+});
+    // count up button
+const counterNum = document.getElementById("counter");
+const countButton = document.getElementById("countButton");
+let count = 0;
+countButton.addEventListener("click", () => {
+count++;
+counterNum.textContent = `count: ${count}`;
+});
+    </script>
+    
+</body>
+</html>
