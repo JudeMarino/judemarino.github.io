@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS Draft</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="phoneScreen">
+    <div class="display" id="display">
+      _ _ _ _ _ _ _ _ _ _
+    </div>
+    <div class="keypad">
+      <button onclick="handleKey('1')">1</button>
+      <button onclick="handleKey('2')">2</button>
+      <button onclick="handleKey('3')">3</button>
+      <button onclick="handleKey('4')">4</button>
+      <button onclick="handleKey('5')">5</button>
+      <button onclick="handleKey('6')">6</button>
+      <button onclick="handleKey('7')">7</button>
+      <button onclick="handleKey('8')">8</button>
+      <button onclick="handleKey('9')">9</button>
+      <div></div>
+      <button class="zeroBtn" onclick="handleKey('0')">0</button>
+      <div></div>
+    </div>
+  </div>
+
+  <div class="captcha" id="captcha">
+    <div class="captcha-content">
+      <p id="captchaQuestion">loading</p>
+      <input type="text" id="captchaInput" placeholder="type answer">
+      <br><br>
+      <label>
+        <input type="checkbox" id="robotCheck">
+        I'm not a robot
+      </label>
+      <br>
+      <button id="captchaSubmit" onclick="submitCaptcha()" disabled>Submit</button>
+      <div id="error">WRONG</div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
