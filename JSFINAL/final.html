@@ -1,15 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>JS Draft</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="textureOverlay"></div>
+
+  <div class="gif-container">
+    <img src="https://i0.wp.com/netart.commons.gc.cuny.edu/files/2017/08/Pixel-Earth.gif?resize=385%2C385&ssl=1f" alt="Pixel Earth" class="titleGif" />
+  </div>  
+
+  <div class="titleText">
+    <img src="img/Nokia.png" alt="Nokia Logo" class="titleImage" />
+  </div>
+
   <div class="phoneScreen">
+    <div class="instructionText">Type in phone number</div>
+
     <div class="display" id="display">
       _ _ _ _ _ _ _ _ _ _
     </div>
+
     <div class="keypad">
       <button onclick="handleKey('1')">1</button>
       <button onclick="handleKey('2')">2</button>
@@ -24,20 +37,29 @@
       <button class="zeroBtn" onclick="handleKey('0')">0</button>
       <div></div>
     </div>
+
+    <button id="submitNumber" class="submitBtn" onclick="submitNumber()">Submit</button>
   </div>
 
   <div class="captcha" id="captcha">
     <div class="captcha-content">
       <p id="captchaQuestion">loading</p>
-      <input type="text" id="captchaInput" placeholder="type answer">
-      <br><br>
+      <input type="text" id="captchaInput" placeholder="type answer" />
+      <br /><br />
       <label>
-        <input type="checkbox" id="robotCheck">
+        <input type="checkbox" id="robotCheck" />
         I'm not a robot
       </label>
-      <br>
+      <br />
       <button id="captchaSubmit" onclick="submitCaptcha()" disabled>Submit</button>
       <div id="error">WRONG</div>
+    </div>
+  </div>
+
+  <div id="endingPopup" class="endingPopup" style="display:none;">
+    <div class="endingPopCont">
+      <p>We will now sell your information to the Nokia-verse gods</p>
+      <img src="https://media.tenor.com/RX6IHY4xRSEAAAAj/pepedance-dance.gif" alt="Dance GIF" />
     </div>
   </div>
 

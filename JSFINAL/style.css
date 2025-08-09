@@ -5,32 +5,47 @@ body {
   color: #00ff00;
   font-family: 'Press Start 2P', cursive;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   height: 100vh;
   margin: 0;
+  padding-top: 20px;
 }
 
 .phoneScreen {
   border: 3px solid #00ff00;
-  padding: 20px;
-  width: 250px;
+  padding: 25px;
+  width: 380px;
   text-align: center;
+  transform: scale(1.1);
+}
+
+.instructionText {
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #00ff00;
+  font-family: 'Press Start 2P', cursive;
+  letter-spacing: 1px;
 }
 
 .display {
-  font-size: 24px;
-  letter-spacing: 4px;
+  font-size: 16px;
+  letter-spacing: 2px;  
   margin-bottom: 20px;
   border: 1px solid #00ff00;
   padding: 10px;
   background-color: #002200;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .keypad {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
+  grid-gap: 12px;
+  max-width: 250px;
+  margin: 0 auto;
 }
 
 .keypad button {
@@ -38,13 +53,25 @@ body {
   border: 1px solid #00ff00;
   color: #00ff00;
   font-family: 'Press Start 2P', cursive;
-  font-size: 20px;
-  padding: 10px;
+  font-size: 22px;
+  padding: 12px;
   cursor: pointer;
 }
 
 .zeroBtn {
   grid-column: 2 / 3;
+}
+
+.submitBtn {
+  background-color: #002200;
+  border: 1px solid #00ff00;
+  color: #00ff00;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 22px;
+  padding: 12px;
+  margin-top: 20px;
+  cursor: pointer;
+  width: 250px;
 }
 
 .captcha {
@@ -55,7 +82,7 @@ body {
   display: none;
   justify-content: center;
   align-items: center;
-  z-index: 999;
+  z-index: 60;
 }
 
 .captcha-content {
@@ -63,7 +90,7 @@ body {
   border: 2px solid #00ff00;
   padding: 20px;
   text-align: center;
-  width: 300px;
+  width: 320px;
 }
 
 .captcha input[type="text"] {
@@ -71,7 +98,7 @@ body {
   background-color: #001a00;
   border: 1px solid #00ff00;
   color: #00ff00;
-  font-family: 'Pixel', monospace;
+  font-family: 'Press Start 2P', cursive;
   padding: 5px;
   width: 80%;
 }
@@ -81,20 +108,120 @@ body {
   background-color: #001a00;
   border: 1px solid #00ff00;
   color: #00ff00;
-  font-family: 'Pixel', monospace;
+  font-family: 'Press Start 2P', cursive;
   padding: 5px 10px;
   cursor: pointer;
+}
+
+/* 
+tutorial I used for future ref
+https://www.geeksforgeeks.org/css/how-to-align-checkboxes-and-their-labels-on-cross-browsers-using-css/?utm_source=chatgpt.com
+*/
+
+label {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
 }
 
 input[type="checkbox"] {
   accent-color: #00ff00;
   transform: scale(1.5);
-  margin-right: 8px;
-  margin-top: 12px;
+  margin: 0;
 }
 
 #error {
   color: red;
   display: none;
   margin-top: 5px;
+}
+
+.instructionText {
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #00ff00;
+  font-family: 'Press Start 2P', cursive;
+  letter-spacing: 1px;
+}
+
+.titleText {
+  margin-bottom: 40px;
+}
+
+.titleImage {
+  width: 450px;
+  animation: bob 3s ease-in-out infinite;
+}
+
+@keyframes bob {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* pixel earth gif from NET-ART link:
+https://netart.commons.gc.cuny.edu/2017/08/24/the-pixelated-earth-spins-endlessly/
+Created by Ryan Seslow */
+
+.gif-container {
+  margin-bottom: 25px;
+}
+
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/hue-rotate 
+making it green and grayscale was kind of confusing /:*/
+
+.titleGif {
+  width: 100px;
+  filter: grayscale(100%) brightness(1) sepia(1) hue-rotate(90deg) saturate(4);
+}
+
+.endingPopup {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 26, 0, 0.95);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 60;
+}
+
+.endingPopCont {
+  background-color: #002200;
+  border: 2px solid #00ff00;
+  padding: 30px;
+  text-align: center;
+  color: #00ff00;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 20px;
+  max-width: 400px;
+}
+
+/* original pepe link: https://tenor.com/view/pepedance-dance-pepe-gif-20169053?utm_source=share-button&utm_medium=Social&utm_content=pinterest
+*/
+
+.endingPopCont img {
+  margin-top: 15px;
+  max-width: 100%;
+  height: auto;
+  filter: grayscale(100%) brightness(0.6) sepia(1) hue-rotate(90deg) saturate(3) contrast(100%);
+}
+
+/* overlay texture - blending mode tutorial: https://developer.mozilla.org/en-US/docs/Web/CSS/mix-blend-mode*/
+
+.textureOverlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  background: url('img/phonescreen.jpg') no-repeat center center;
+  background-size: cover;
+  mix-blend-mode: overlay;
+  opacity: 0.5;
+  z-index: 100;
 }
