@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fullscreen Video (Desktop & Mobile)</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    video {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+      z-index: -1;
+      display: none; /* Hide until media query activates */
+    }
+
+    /* Default: desktop video */
+    #desktopVideo {
+      display: block;
+    }
+
+    /* When screen width is 768px or less, show mobile video */
+    @media (max-width: 768px) {
+      #desktopVideo {
+        display: none;
+      }
+      #mobileVideo {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body onclick="window.location.href='https://www.youtube.com';">
+  <!-- Desktop video -->
+  <video id="desktopVideo" autoplay muted loop playsinline>
+    <source src="video/Website.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Mobile video -->
+  <video id="mobileVideo" autoplay muted loop playsinline>
+    <source src="video/interstate-crt-space.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</body>
+</html>
