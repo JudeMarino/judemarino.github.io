@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+  </head>
+<body>
+    <a-scene>
+         <a-assets>
+    <img id="beachball" src="textures/beachball.jpeg">
+    <img id="sky" src="textures/psedit.jpg">
+    <img id="cone" src="textures/cone.jpg">
+        </a-assets>
+
+    
+      <a-cone position="0 0 -5" radius-bottom="0.3" radius-top="0" rotation="180 0 0" src="#cone"></a-cone>
+      <a-sphere position="-3 0 -5" radius="1.25" src="#beachball"></a-sphere>
+      <a-sky src="#sky"></a-sky>
+      <a-sphere position="0 0.6 -5" radius="0.3" color="white"></a-sphere>
+    </a-scene>
+  </body>
+</html>
