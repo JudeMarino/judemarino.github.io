@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aframe-obj-model-component@1.1.1/dist/aframe-obj-model-component.min.js"></script>
+<body>
+  <a-scene>
+ <a-entity
+  geometry="primitive: plane; width: 20; height: 20"
+  material="shader: standard; displacementMap: url(sand/heightmap.png); displacementScale: 2; src: url(sand/sandtexture.jpg)"
+  rotation="-90 0 0"
+  position="0 -0.5 0">
+</a-entity>
+    <a-entity 
+         obj-model="obj: url(models/eyeball/eyeball.obj); mtl: url(models/eyeball/eyeball.mtl);"
+         position="0.35 1.2 -4"
+         rotation="-15 30 0";
+         scale="0.3 0.3 0.3">
+    </a-entity>
+     <a-entity light="type: directional; intensity: 1" position="2 3 1"></a-entity>
+  </a-scene>
+</body>
+</html>
